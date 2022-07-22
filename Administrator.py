@@ -1,26 +1,20 @@
+# @Author  :   Cherises and Ni Chenyang
+    
 import os
-
 # import pymysql
 import random
 import socket
-
 import pymysql
-
 import AsFunction
 from pymysql.converters import escape_string
-
 import time
 from concurrent.futures import ThreadPoolExecutor
-
 import wx
-
 import AsDesktop
-import AsDialog
-
+import ASDialog
 from sympy import *
 from sympy.plotting import plot
 from sympy.plotting import plot3d
-
 import psutil
 
 # abcdefghijklmnopqrstuvwxyz
@@ -32,7 +26,7 @@ pools = ThreadPoolExecutor(1)
 pool1 = ThreadPoolExecutor(1)
 pool2 = ThreadPoolExecutor(1)
 
-REMOTE_IP = ('114.115.153.152', 9574)
+REMOTE_IP = ('114.*.*.152', 9574)
 BUFFER_SIZE = 1024
 SOCKET_TIMEOUT_TIME = 120
 
