@@ -38,16 +38,6 @@ SOCKET_TIMEOUT_TIME = 120
 
 
 def send_socket_info(self, handle, msg, side='server', do_encode=True, do_print_info=True):
-    """
-    发送socket info，并根据side打印不同的前缀信息
-    :param self:
-    :param handle: socket句柄
-    :param msg: 要发送的内容
-    :param side: 默认server端
-    :param do_encode: 是否需要encode，默认True
-    :param do_print_info: 是否需要打印socket信息，默认True
-    :return:
-    """
     if do_encode:
         handle.send(msg.encode())
     else:
@@ -56,24 +46,14 @@ def send_socket_info(self, handle, msg, side='server', do_encode=True, do_print_
     if do_print_info:
         current_time = time.strftime('%Y-%m-%d %H:%M:%S')
         if side == 'server':
-            print(f'Server send --> {current_time} - {msg}')
-            self.m_textCtrl1021.AppendText(f'\nServer send --> {current_time} - {msg}')
+            print("{0}:{1}".format(current_time,msg))
+            self.m_textCtrl1021.AppendText("{0}:{1}".format(current_time,msg))
         else:
-            print(f'Client send --> {current_time} - {msg}')
-            self.m_textCtrl1021.AppendText(f'\nClient send --> {current_time} - {msg}')
+            print("{0}:{1}".format(current_time,msg))
+            self.m_textCtrl1021.AppendText("{0}:{1}".format(current_time,msg))
 
 
 def receive_socket_info(self, handle, expected_msg, side='server', do_decode=True, do_print_info=True):
-    """
-    循环接收socket info，判断其返回值，直到指定的值出现为止，防止socket信息粘连，并根据side打印不同的前缀信息
-    :param self:
-    :param handle: socket句柄
-    :param expected_msg: 期待接受的内容，如果接受内容不在返回结果中，一直循环等待，期待内容可以为字符串，也可以为多个字符串组成的列表或元组
-    :param side: 默认server端
-    :param do_decode: 是否需要decode，默认True
-    :param do_print_info: 是否需要打印socket信息，默认True
-    :return:
-    """
     while True:
         if do_decode:
             socket_data = handle.recv(BUFFER_SIZE).decode()
@@ -83,11 +63,12 @@ def receive_socket_info(self, handle, expected_msg, side='server', do_decode=Tru
         if do_print_info:
             current_time = time.strftime('%Y-%m-%d %H:%M:%S')
             if side == 'server':
-                print(f'Server received ==> {current_time} - {socket_data}')
-                self.m_textCtrl1021.AppendText(f'\nServer received ==> {current_time} - {socket_data}')
+                print("{0}:{1}".format(current_time,socket_data))
+                print("{0}:{1}".format(current_time,socket_data))
+                self.m_textCtrl1021.AppendText("{0}:{1}".format(current_time,socket_data))
             else:
-                print(f'Client received ==> {current_time} - {socket_data}')
-                self.m_textCtrl1021.AppendText(f'\nClient received ==> {current_time} - {socket_data}')
+                print("{0}:{1}".format(current_time,socket_data))
+                self.m_textCtrl1021.AppendText("{0}:{1}".format(current_time,socket_data))
 
         # 如果expected_msg为空，跳出循环
         if not expected_msg:
