@@ -1,3 +1,5 @@
+## @Author  :   Cherises and Ni Chenyang
+
 import time
 import smtplib
 from email.header import Header
@@ -53,8 +55,8 @@ def linktosql():
 # 连接服务器的数据库函数
 def linktosersql():
     try:
-        db = pymysql.connect(host='114.115.153.152', port=3306, user='analizepy', password='PBs8mFsrBMKNenrJ',
-                             database='analizepy', charset='utf8')
+        db = pymysql.connect(host='114.*.*.152', port=3306, user='*', password='*',
+                             database='*', charset='utf8')
         cursor = db.cursor()
         return db, cursor, '1'
     except Exception as e:
@@ -149,7 +151,7 @@ def sendmail(receive, title, value):
     receiver = receive
     smtpServer = 'smtp.163.com'
     username = 'zhaozhinet@163.com'
-    password = 'KGQYLSKRZYRPQGFV'
+    password = '*'
     mail_title = title
     mail_body = value
     message = MIMEText(mail_body, 'plain', 'utf-8')
