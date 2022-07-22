@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*- 
+## @Author  :   Cherises and Ni Chenyang
+
 import wx
 import AsFunction
 import wx.xrc
@@ -45,20 +48,7 @@ class MyDialog1(wx.Dialog):
         self.Destroy()
 
 
-# -*- coding: utf-8 -*- 
 
-###########################################################################
-## Python code generated with wxFormBuilder (version Jun 17 2015)
-## http://www.wxformbuilder.org/
-##
-## PLEASE DO "NOT" EDIT THIS FILE!
-###########################################################################
-
-
-
-###########################################################################
-## Class MyDialog2
-###########################################################################
 
 class MyDialog2(wx.Dialog):
 
